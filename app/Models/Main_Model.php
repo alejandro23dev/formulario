@@ -8,15 +8,21 @@ use CodeIgniter\Database\MySQLi\Builder;
 
 class Main_Model extends Model
 {
+    
+    public function createUser($nombre, $apellidos ,$email) 
+    {
 
-    public function guardarDatos($nombre, $apellidos, $email)
-{
-    $data = [
-        'nombre' => $nombre,
-        'apellidos' => $apellidos,
-        'email' => $email
-    ];
+        $model = new Main_Model();
 
-    return $this->db->table('usuarios')->insert($data); // Cambia "tabla" por el nombre de tu tabla en la base de datos
-}
+        $data = array(
+            'nombre' => $nombre,
+            'apellidos' => $apellidos,
+            'email' => $email
+        );
+
+        // Insertar los datos en la tabla de usuarios
+        $result = $this->$model->db->insert('usuarios', $data);
+
+        return $result;
+    }
 }
