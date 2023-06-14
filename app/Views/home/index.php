@@ -12,7 +12,7 @@ echo view('header/index')
         <form id="formulario" method="POST" action="" class="needs-validation" novalidate>
           <!-- Campo de Nombre -->
           <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="nombre " name="nombre" placeholder="Nombre" minlength="3" maxlength="45" >
+            <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre" minlength="3" maxlength="45" >
             <label for="nombre">Nombre</label>
             <div class="invalid-feedback">
               Por favor, introduce tu nombre.
@@ -83,26 +83,24 @@ echo view('header/index')
   <script>
   $(document).ready(function() {
 
-
-
-    $('#enviar').click(function() {
+    $('#enviar').on('click', function(){
         $.ajax({
             type: "post",
-            url: "<?php echo base_url('Home/createUser')?>",
-            data: [
-                'nombre', $('#nombre').val(),
-                'apellidos', $('#apellidos').val(),
-                'email', $('#email').val(),
-            ],
+            url: "<?php echo base_url('Home/createUser');?>",
+            data: {
+                'nombre': $('#nombre').val(),
+                'apellidos': $('#apellidos').val(),
+                'email': $('#email').val(),
+            },
             dataType: "json",
-        }).done(function() {
-            alert('OK')
-        }).fail(function(){
-            alert('Error')  
+        }).done(function(jsonResponse) {
+          window.location.href = "<?php echo base_url('Home/listView'); ?>";
+        }).fail(function(error) {
+          window.location.href = "<?php echo base_url('Home/listView'); ?>";
         });
-    }); 
+    });
 });  
 
-  </script>
+</script>
 </body>
 </html>

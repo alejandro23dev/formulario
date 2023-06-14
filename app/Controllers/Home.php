@@ -14,14 +14,24 @@ class Home extends BaseController
 
 	public function createUser()
 	{
-		$modal = new Main_Model();
+		$Model = new Main_Model();
 
-        $data = [
-            "nombre" => $this->request->getPost("nombre"),
-            "apellidos" => $this->request->getPost("apellidos"),
-            "email" => $this->request->getPost("email")
-        ];
+        $data = array();
+        $data['nombre'] = $this->request->getPost('nombre');
+        $data['apellidos'] = $this->request->getPost('apellidos');
+        $data['email'] = $this->request->getPost('email');
 
-        $modal->createUser($data);
+        $Model->createUser($data);
+    }
+
+    public function listView()
+	{
+        // Cargar el modelo de usuarios
+        $Model = new Main_Model();
+
+        // Recuperar todos los usuarios de la tabla
+        $datos['usuarios'] = $Model->findAll();
+
+		return view ('listView/index', $datos);
     }
 }
