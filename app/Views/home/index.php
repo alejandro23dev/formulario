@@ -13,7 +13,7 @@ echo view('header/index')
           <!-- Campo de Nombre -->
           <div class="form-floating mb-3">
             <input type="text" class="form-control" id="nombre " name="nombre" placeholder="Nombre" minlength="3" maxlength="45" >
-            <label for="nombre"></label>
+            <label for="nombre">Nombre</label>
             <div class="invalid-feedback">
               Por favor, introduce tu nombre.
             </div>
@@ -22,7 +22,7 @@ echo view('header/index')
           <!-- Campo de Apellidos -->
           <div class="form-floating mb-3">
             <input type="text" class="form-control" id="apellidos" name="apellidos" placeholder="Apellidos" minlength="3" maxlength="45">
-            <label for="apellidos"></label>
+            <label for="apellidos">Apellidos</label>
             <div class="invalid-feedback">
               Por favor, introduce tus apellidos.
             </div>
@@ -31,7 +31,7 @@ echo view('header/index')
           <!-- Campo de Email -->
           <div class="form-floating mb-3">
             <input type="email" class="form-control" id="email" name="email" placeholder="Email" minlength="3" maxlength="45" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
-            <label for="email"></label>
+            <label for="email">Email</label>
             <div class="invalid-feedback">
               Por favor, introduce una dirección de email válida.
             </div>
@@ -83,14 +83,16 @@ echo view('header/index')
   <script>
   $(document).ready(function() {
 
+
+
     $('#enviar').click(function() {
         $.ajax({
             type: "post",
             url: "<?php echo base_url('Home/createUser')?>",
             data: [
-                'nombre', nombre,
-                'apellidos', apellidos,
-                'email', email,
+                'nombre', $('#nombre').val(),
+                'apellidos', $('#apellidos').val(),
+                'email', $('#email').val(),
             ],
             dataType: "json",
         }).done(function() {

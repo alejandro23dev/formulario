@@ -9,20 +9,12 @@ use CodeIgniter\Database\MySQLi\Builder;
 class Main_Model extends Model
 {
     
-    public function createUser($nombre, $apellidos ,$email) 
+    protected $table = 'usuarios';
+    protected $primaryKey = 'id';
+    protected $allowedFields = ['nombre', 'apellidos', 'email'];
+
+    public function createUser($data) 
     {
-
-        $model = new Main_Model();
-
-        $data = array(
-            'nombre' => $nombre,
-            'apellidos' => $apellidos,
-            'email' => $email
-        );
-
-        // Insertar los datos en la tabla de usuarios
-        $result = $this->$model->db->insert('usuarios', $data);
-
-        return $result;
+        return $this->insert($data);
     }
 }

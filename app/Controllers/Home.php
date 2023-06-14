@@ -16,18 +16,12 @@ class Home extends BaseController
 	{
 		$modal = new Main_Model();
 
-        // Obtener los datos del formulario AJAX
-        $nombre = $this->request->getPost('nombre');
-		$apellidos = $this->request->getPost('apellidos');
-        $email = $this->request->getPost('email');
-        
+        $data = [
+            "nombre" => $this->request->getPost("nombre"),
+            "apellidos" => $this->request->getPost("apellidos"),
+            "email" => $this->request->getPost("email")
+        ];
 
-        // Insertar los datos en la base de datos utilizando el modelo Main_Model
-        $result = $this->$modal->createUser($nombre, $apellidos, $email);
-
-        // Si todo salió bien, enviar una respuesta de éxito
-        echo json_encode(array('success' => true));
-
-        return ($result);
+        $modal->createUser($data);
     }
 }
