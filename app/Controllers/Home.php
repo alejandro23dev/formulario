@@ -29,6 +29,8 @@ class Home extends BaseController
         // Cargar el modelo de usuarios
         $Model = new Main_Model();
 
+        
+
         // Recuperar todos los usuarios de la tabla
         $datos['usuarios'] = $Model->findAll();
 

@@ -12,7 +12,7 @@ echo view('header/index')
         <form id="formulario" method="POST" action="" class="needs-validation" novalidate>
           <!-- Campo de Nombre -->
           <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre" minlength="3" maxlength="45" >
+            <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre" minlength="3" maxlength="45" value="<?= $usuario['nombre'] ?>">
             <label for="nombre">Nombre</label>
             <div class="invalid-feedback">
               Por favor, introduce tu nombre.
@@ -21,7 +21,7 @@ echo view('header/index')
 
           <!-- Campo de Apellidos -->
           <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="apellidos" name="apellidos" placeholder="Apellidos" minlength="3" maxlength="45">
+            <input type="text" class="form-control" id="apellidos" name="apellidos" placeholder="Apellidos" minlength="3" maxlength="45" value="<?= $usuario['apellidos'] ?>">
             <label for="apellidos">Apellidos</label>
             <div class="invalid-feedback">
               Por favor, introduce tus apellidos.
@@ -30,7 +30,7 @@ echo view('header/index')
 
           <!-- Campo de Email -->
           <div class="form-floating mb-3">
-            <input type="email" class="form-control" id="email" name="email" placeholder="Email" minlength="3" maxlength="45" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+            <input type="email" class="form-control" id="email" name="email" placeholder="Email" minlength="3" maxlength="45" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" value="<?= $usuario['email'] ?>">
             <label for="email">Email</label>
             <div class="invalid-feedback">
               Por favor, introduce una dirección de email válida.

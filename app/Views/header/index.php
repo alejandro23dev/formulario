@@ -9,6 +9,11 @@
   <!-- Importar los scripts de Bootstrap 5 y de la validación de formularios -->
   <script src="<?php echo base_url('js/bootstrap.bundle.min.js')?>"></script>
   <script src="<?php echo base_url('JQuery/jquery-3.7.0.min.js')?>"></script>
-  <link href="https://cdn.datatables.net/v/dt/dt-1.13.4/datatables.min.css" rel="stylesheet"/>
-  <script src="https://cdn.datatables.net/v/dt/dt-1.13.4/datatables.min.js"></script>
+  <!--DATATABLE-->
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url('DataTable/css/dataTables.bootstrap.css'); ?>">
+<script type="text/javascript" src="<?php echo base_url('DataTable/datatables.min.js'); ?>"></script>
+<!--BOOTSTRAP 5 ICONS-->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+
 </head>
